@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 import Login from './components/Login'
 import Logout from './components/Logout';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         </nav>
 
         <Switch>
+          <PrivateRoute exact path='/' component={null}/>
           <Route path='/logout' component={Logout}/>
           <Route path='/login' component={Login}/>
           <Route path='/' component={Login}/>
