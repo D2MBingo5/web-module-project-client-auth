@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import Login from './components/Login'
 import Logout from './components/Logout';
 import PrivateRoute from './components/PrivateRoute';
+import FriendsList from './components/FriendsList';
 
 function App() {
   return (
@@ -20,12 +21,12 @@ function App() {
           <span>----</span>
           }
           {localStorage.getItem('token') && 
-          <Link to='/'>Protected</Link>
+          <Link to='/friends'>Friends List</Link>
           }
         </nav>
 
         <Switch>
-          <PrivateRoute exact path='/' component={null}/>
+          <PrivateRoute exact path='/friends' component={FriendsList}/>
           <Route path='/logout' component={Logout}/>
           <Route path='/login' component={Login}/>
           <Route path='/' component={Login}/>
